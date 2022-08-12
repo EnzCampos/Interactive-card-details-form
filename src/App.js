@@ -3,15 +3,15 @@ import React from 'react'
 
 function App() {
   const [cardInfo, setCardInfo] = React.useState({
-    cardHolder: 'Name',
-    cardNumber:'0000 0000 0000 0000',
-    cardExpDateMM: '00',
-    cardExpDateYY: '00',
-    cardCvc: '000',
+    cardHolder: '',
+    cardNumber:'',
+    cardExpDateMM: '',
+    cardExpDateYY: '',
+    cardCvc: '',
   })
   
   function handleChange(event) {
-    setCardInfo(prevValue => ({
+    setCardInfo( prevValue => ({
       ...prevValue,
       [event.target.name]: event.target.value
     }))
@@ -22,15 +22,15 @@ function App() {
       <div className='cards'>
         <div className='card front'>
           <CardLogo className="card-logo"/>
-          <h3 className="card-number">{cardInfo.cardNumber}</h3>
+          <h3 className="card-number">{cardInfo.cardNumber ? cardInfo.cardNumber : "0000 0000 0000 0000"}</h3>
           <div className='flex'>
-            <h3 className="card-owner">{cardInfo.cardHolder}</h3>
-            <h3 className='exp-date'>{cardInfo.cardExpDateMM}/{cardInfo.cardExpDateYY}</h3>
+            <h3 className="card-owner">{cardInfo.cardHolder ? cardInfo.cardHolder : "Name"}</h3>
+            <h3 className='exp-date'>{ cardInfo.cardExpDateMM && cardInfo.cardExpDateYY ? `${cardInfo.cardExpDateMM}/${cardInfo.cardExpDateYY}` : "00/00"}</h3>
           </div>
           <br/>
         </div>
         <div className='card back'>
-          <h3 className="cvc ">{cardInfo.cardCvc}</h3>
+          <h3 className="cvc ">{cardInfo.cardCvc ? cardInfo.cardCvc : "000"}</h3>
         </div>
       </div>
       <div className="form-div">
@@ -49,7 +49,7 @@ function App() {
           <br/>
           <div className='card-date-cvc'>
             <label className='exp-date'>
-              Exp. Date
+              Exp. Date (MM/YY)
               <br/>
               <div>
                 <input type="number" placeholder='MM' name='cardExpDateMM' min='1' max='99' className="card-date mm" value={cardInfo.cardExpDateMM} onChange={handleChange}></input>
