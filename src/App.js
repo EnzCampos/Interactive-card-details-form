@@ -1,12 +1,23 @@
 import React from 'react'
 
 function App() {
+  const [cardInfo, setCardInfo] = React.useState({
+    cardHolder: 'Name',
+    cardNumber:'0000 0000 0000 0000',
+    cardExpDateMM: '00',
+    cardExpDateYY: '00',
+    cardCvc: '000',
+  })
+
   return (
     <div className="main-content">
       <div className='cards'>
         <img src={require('./bg-card-front.png')} alt='card front' className="card front"/>
+        <h3 className="card-number">{cardInfo.cardNumber}</h3>
+        <h3 className="card-owner">{cardInfo.cardHolder}</h3>
         <br/>
         <img src={require('./bg-card-back.png')} alt='card front' className="card back"/>
+        <h3 className="card-cvc ">{cardInfo.cardCvc}</h3>
       </div>
       <div className="form-div">
         <form className="form center">
@@ -34,7 +45,7 @@ function App() {
             <label className='cvc'>
               CVC
               <br/>
-              <input type="number" placeholder='e.g. 123' name='cardCVC' min='0' className='card-cvc'></input>
+              <input type="number" placeholder='e.g. 123' name='cardCvc' min='0' className='card-cvc'></input>
             </label>
           </div>
           <label>
