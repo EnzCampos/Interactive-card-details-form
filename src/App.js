@@ -52,8 +52,8 @@ function App() {
               Exp. Date
               <br/>
               <div>
-                <input type="number" placeholder='MM' name='cardExpDateMM' min='01' max='12' className="card-date mm" value={cardInfo.cardExpDateMM} onChange={handleChange}></input>
-                <input type="number" placeholder='YY' name='cardExpDateYY' min='2022' className="card-date yy" value={cardInfo.cardExpDateYY} onChange={handleChange}></input>
+                <input type="number" placeholder='MM' name='cardExpDateMM' min='1' max='99' className="card-date mm" value={cardInfo.cardExpDateMM} onChange={handleChange}></input>
+                <input type="number" placeholder='YY' name='cardExpDateYY' min='22' max='99' className="card-date yy" value={cardInfo.cardExpDateYY} onChange={handleChange}></input>
               </div>
             </label>
             <label className='cvc-label'>

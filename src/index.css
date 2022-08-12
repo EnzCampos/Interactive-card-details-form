@@ -4,17 +4,18 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: url('bg-main-desktop.png');
+  background-repeat: no-repeat;
+  background-size: 35vw 100vh;
 }
 
 .main-content {
   display: grid;
-  background-color: antiquewhite;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5%;
 }
 
 .card {
-  margin-left: 5%;
   width: 450px;
   height: 250px;
   border-radius: 15px;
@@ -40,11 +41,11 @@ body {
 }
 
 .form {
-  margin: 20%;
+  margin: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 55%;
+  height: 65%;
 }
 
 input {
@@ -63,8 +64,6 @@ label {
   font-size: 18px;
 }
 
-
-
 .mm {
   width: 30%;
   padding: 8px;
@@ -73,6 +72,10 @@ label {
 .yy {
   width: 30%;
   padding: 8px;
+}
+
+.cvc-label {
+  width: 40%;
 }
 
 .confirm {
