@@ -1,4 +1,5 @@
 import { ReactComponent as CardLogo } from "./card-logo.svg"
+import { ReactComponent as CompletedLogo } from "./icon-complete.svg"
 import React from 'react'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     cardExpDateYY: '',
     cardCvc: '',
   })
+  const [submitted, setSubmitted] = React.useState(true)
   
   function handleChange(event) {
     setCardInfo( prevValue => ({
@@ -34,7 +36,7 @@ function App() {
         </div>
       </div>
       <div className="form-div">
-        <form className="form center">
+        {!submitted ? <form className="form center">
           <label>
             Card Holder Name
             <br/>
@@ -63,9 +65,17 @@ function App() {
             </label>
           </div>
           <label>
-            <button className="confirm">Confirm</button>
+            <input type="submit" value="Confirm" className="confirm"/>
           </label>
-        </form>
+        </form> 
+        :
+        <div className='confirmed-div'>
+          <CompletedLogo />
+          <h2>THANK YOU!</h2>
+          <p>We've added your card details</p>
+          <button className="confirmed">Continue</button>
+        </div>
+        }
       </div>
     </div>
   );

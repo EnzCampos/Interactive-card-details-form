@@ -79,12 +79,12 @@ label {
 }
 
 .confirm {
-  width: 109%;
+  width: 107%;
   padding: 8px;
-  background-color: rgb(73, 2, 121);
+  background-color: hsl(278, 68%, 11%);
   color: white;
-  border: 2px solid rgb(73, 2, 121);
-  border-radius: 10px;
+  border: 2px solid hsl(278, 68%, 11%);
+  border-radius: 8px;
   margin-top: 15px;
 }
 
@@ -115,4 +115,30 @@ h3 {
 
 .card-logo {
   margin-left: 5%;
+}
+
+.confirmed-div {
+  margin: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmed {
+    width: 130%;
+    padding: 10px;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    border: 2px solid hsl(278, 68%, 11%);
+    border-radius: 8px;
+    margin-top: 15px;
+  
+}
+h2 {
+  margin-top: 10%;
+  margin-bottom: 2%;
+}
+p {
+  color: grey;
 }
