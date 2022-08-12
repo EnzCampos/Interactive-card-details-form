@@ -2,6 +2,9 @@ import { ReactComponent as CardLogo } from "./card-logo.svg"
 import { ReactComponent as CompletedLogo } from "./icon-complete.svg"
 import React from 'react'
 
+//Curent Tasks:
+// 1 - Add Data Validation in the form, check for length, numbers and format, returning an error message box below the input.
+
 function App() {
   const [cardInfo, setCardInfo] = React.useState({
     cardHolder: '',
@@ -47,13 +50,13 @@ function App() {
           <label>
             Card Holder Name
             <br/>
-            <input type="string" placeholder='eg. Enzo Campos' name='cardHolder' value={cardInfo.cardHolder} onChange={handleChange}></input>
+            <input type="string" placeholder='eg. Enzo Campos' name='cardHolder' value={cardInfo.cardHolder} onChange={handleChange} required></input>
           </label>
           <br/>
           <label>
             Card number
             <br/>
-            <input type="string" placeholder='eg. 1234 56789 1234 5678' name='cardNumber' value={cardInfo.cardNumber} onChange={handleChange}></input>
+            <input type="string" placeholder='eg. 1234 56789 1234 5678' name='cardNumber' value={cardInfo.cardNumber} onChange={handleChange} required></input>
           </label>
           <br/>
           <div className='card-date-cvc'>
@@ -61,14 +64,14 @@ function App() {
               Exp. Date (MM/YY)
               <br/>
               <div>
-                <input type="number" placeholder='MM' name='cardExpDateMM' min='1' max='99' className="card-date mm" value={cardInfo.cardExpDateMM} onChange={handleChange}></input>
-                <input type="number" placeholder='YY' name='cardExpDateYY' min='22' max='99' className="card-date yy" value={cardInfo.cardExpDateYY} onChange={handleChange}></input>
+                <input type="number" placeholder='MM' name='cardExpDateMM' min='1' max='99' className="card-date mm" value={cardInfo.cardExpDateMM} onChange={handleChange} required></input>
+                <input type="number" placeholder='YY' name='cardExpDateYY' min='22' max='99' className="card-date yy" value={cardInfo.cardExpDateYY} onChange={handleChange} required></input>
               </div>
             </label>
             <label className='cvc-label'>
               CVC
               <br/>
-              <input type="number" placeholder='e.g. 123' name='cardCvc' min='0' className='card-cvc' value={cardInfo.cardCvc} onChange={handleChange}></input>
+              <input type="number" placeholder='e.g. 123' name='cardCvc' min='0' max='999' className='card-cvc' value={cardInfo.cardCvc} onChange={handleChange} required></input>
             </label>
           </div>
           <label>
