@@ -5,18 +5,24 @@ import React from 'react'
 function App() {
   const [cardInfo, setCardInfo] = React.useState({
     cardHolder: '',
-    cardNumber:'',
+    cardNumber: '',
     cardExpDateMM: '',
     cardExpDateYY: '',
     cardCvc: '',
   })
-  const [submitted, setSubmitted] = React.useState(true)
+
+  const [submitted, setSubmitted] = React.useState(false)
   
   function handleChange(event) {
     setCardInfo( prevValue => ({
       ...prevValue,
       [event.target.name]: event.target.value
     }))
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setSubmitted(true);
   }
 
   return (
@@ -36,7 +42,8 @@ function App() {
         </div>
       </div>
       <div className="form-div">
-        {!submitted ? <form className="form center">
+        { !submitted ? 
+        <form className="form center" onSubmit={handleSubmit}>
           <label>
             Card Holder Name
             <br/>
