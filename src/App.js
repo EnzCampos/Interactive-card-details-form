@@ -1,6 +1,7 @@
 import { ReactComponent as CardLogo } from "./card-logo.svg"
 import { ReactComponent as CompletedLogo } from "./icon-complete.svg"
 import React from 'react'
+import { hasFormSubmit } from "@testing-library/user-event/dist/utils"
 
 //Curent Tasks:
 // 1 - Add Data Validation in the form, check for length, numbers and format, returning an error message box below the input.
@@ -15,19 +16,46 @@ function App() {
   })
 
   const [submitted, setSubmitted] = React.useState(false)
-  
+  const [formErrors, setFormErrors] = React.useState({})
+
   function handleChange(event) {
+    console.log(Object.values(formErrors).length)
     setCardInfo( prevValue => ({
       ...prevValue,
       [event.target.name]: event.target.value
     }))
   }
 
-  function handleSubmit(event) {
+  function checkSubmit(event) {
+    setFormErrors({});
     event.preventDefault();
-    setSubmitted(true);
+    if (!/^([a-zA-Z]+\s)*[a-zA-Z]+$/gi.test(cardInfo.cardHolder)) {
+      setFormErrors(prevValue => ({        
+        ...prevValue,
+        name: `This isn't a valid name, please only use letters or space.`,
+      }))
+    }
+    if (cardInfo.cardNumber.length < 15 || cardInfo.cardNumber.length > 16 ) {
+      setFormErrors(prevValue => ({        
+        ...prevValue,
+        number: `This isn't a valid Card Number.`,
+      }))
+    }
+    if (cardInfo.cardCvc.split('').length !== 3) {
+      setFormErrors(prevValue => ({        
+        ...prevValue,
+        cvc: `This isn't a valid Card Verification Code.`,
+      }))
+    }
+    handleSubmit()
   }
-  
+
+  function handleSubmit() {
+    if (Object.values(formErrors).length === 0) {
+      setSubmitted(true);
+    }
+  }
+
   return (
     <div className="main-content">
       <div className='cards'>
@@ -46,7 +74,7 @@ function App() {
       </div>
       <div className="form-div">
         { !submitted ? 
-        <form className="form center" onSubmit={handleSubmit}>
+        <form className="form center" onSubmit={checkSubmit}>
           <label>
             Card Holder Name
             <br/>
@@ -59,6 +87,7 @@ function App() {
               required>
           </input>
           </label>
+          { formErrors.name && <p className="error">{formErrors.name}</p>}
           <br/>
           <label>
             Card number
@@ -72,6 +101,7 @@ function App() {
               required>
             </input>
           </label>
+          { formErrors.number && <p className="error">{formErrors.number}</p>}
           <br/>
           <div className='card-date-cvc'>
             <label className='exp-date'>
@@ -83,7 +113,7 @@ function App() {
                   placeholder='MM' 
                   name='cardExpDateMM' 
                   min='1' 
-                  max='99' 
+                  max='12' 
                   className="card-date mm" 
                   value={cardInfo.cardExpDateMM} 
                   onChange={handleChange}
@@ -101,6 +131,7 @@ function App() {
                 </input>
               </div>
             </label>
+
             <label className='cvc-label'>
               CVC
               <br/>
@@ -117,6 +148,7 @@ function App() {
               </input>
             </label>
           </div>
+          {formErrors.cvc && <p className="error">{formErrors.cvc}</p>}
           <label>
             <input type="submit" value="Confirm" className="confirm"/>
           </label>

@@ -142,3 +142,10 @@ h2 {
 p {
   color: grey;
 }
+
+.error {
+  color: red;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  margin-left: 5px;
+}
