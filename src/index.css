@@ -3,24 +3,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url('bg-main-desktop.png');
+  background-image: url('./assets/bg-main-desktop.png');
   background-repeat: no-repeat;
-  background-size: 35vw 100vh;
+  background-size: 35vw 100%;
+  margin: 0px;
+  height: 110vh;
 }
 
 .main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 5vw;
 }
 
 .card {
   width: 450px;
   height: 250px;
   border-radius: 15px;
-  min-width: 300px;
-  min-height: 250px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -28,28 +27,29 @@ body {
 }
 
 .front {
-  background-image: url('bg-card-front.png');
+  background-image: url('./assets/bg-card-front.png');
   background-size: 90%;
   background-repeat: no-repeat;
+  position: relative;
+  left: -15%;
 }
 
 .back{
-  margin-left: 12%;
-  background-image: url('bg-card-back.png');
+  background-image: url('./assets/bg-card-back.png');
   background-size: 90%;
   background-repeat: no-repeat;
 }
 
 .form {
-  margin: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 65%;
+  width: 270px;
 }
 
 input {
-  margin: 5px;
+  margin-top: 7px;
   padding: 8px;
   width: 100%;
   border-radius: 5px;
@@ -64,14 +64,13 @@ label {
   font-size: 18px;
 }
 
-.mm {
+.mm, .yy {
   width: 30%;
   padding: 8px;
 }
 
-.yy {
-  width: 30%;
-  padding: 8px;
+.mm {
+  margin-right: 10px;
 }
 
 .cvc-label {
@@ -115,6 +114,8 @@ h3 {
 
 .card-logo {
   margin-left: 5%;
+  width: 80px;
+  height: 45px;
 }
 
 .confirmed-div {
@@ -148,4 +149,111 @@ p {
   margin-top: -3px;
   margin-bottom: -3px;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 950px) {
+  .card {
+    width: 300px;
+    height: 200px;
+  }
+
+  .card-number {
+    font-size: 18px;
+  }
+
+  .card-logo {
+    height: 30px;
+    width: 50px;
+    margin-top: -35px;
+  }
+
+  .card-owner, .exp-date {
+    font-size: 15px;
+  }
+
+  .main-content {
+    gap: 25px;
+  }
+
+  .cvc {
+    margin-top: -35px;
+    font-size: 15px;
+  }
+  .form {
+    width: 200px;
+    margin-top: 15%;
+  }
+  .mm, .yy {
+    width: 25%;
+  }
+  label {
+    font-size: 18px;
+  }
+  .card-cvc {
+    margin-top: 18px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .main-content {
+    gap: 5px;
+  }
+  .card {
+    width: 250px;
+  }
+  .front {
+    left: -5%;
+  }
+  .back {
+    margin-top: -50px;
+  }
+  .card-cvc, .card-number, .card-owner {
+    font-size: 15px;
+  }
+  .card-logo {
+    width: 30px;
+    height: 20px;
+  }
+  .cvc {
+    margin-top: -60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-size: 100vw 30vh;
+    margin: 0px;
+    height: 100vh;
+  }
+  .main-content {
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 70px;
+  }
+  .card {
+    border-radius: 1px;
+    margin: 0px;
+  }
+  .cards {
+    margin-left: 20px;
+  }
+  .form {
+    margin-top: -200px;
+    height: 0px;
+    min-height: 200px;
+    width: 300px;
+    margin-left: -30px;
+  }
+  .front {
+    left: -40px;
+  }
+  .back {
+    position: relative;
+    top: -280px;
+    right: -40px;
+    z-index: -1;
+  }
+  .mm, .yy {
+    margin-top: 22px;
+  }
 }

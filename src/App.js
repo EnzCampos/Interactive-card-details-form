@@ -1,7 +1,6 @@
-import { ReactComponent as CardLogo } from "./card-logo.svg"
-import { ReactComponent as CompletedLogo } from "./icon-complete.svg"
+import cardLogo from "./assets/card-logo.svg"
+import { ReactComponent as CompletedLogo } from "./assets/icon-complete.svg"
 import React from 'react'
-import { hasFormSubmit } from "@testing-library/user-event/dist/utils"
 
 //Curent Tasks:
 // 1 - Add Data Validation in the form, check for length, numbers and format, returning an error message box below the input.
@@ -60,7 +59,7 @@ function App() {
     <div className="main-content">
       <div className='cards'>
         <div className='card front'>
-          <CardLogo className="card-logo"/>
+          <img src={cardLogo} alt="card logo" className="card-logo" />
           <h3 className="card-number">{cardInfo.cardNumber ? cardInfo.cardNumber : "0000 0000 0000 0000"}</h3>
           <div className='flex'>
             <h3 className="card-owner">{cardInfo.cardHolder ? cardInfo.cardHolder : "Name"}</h3>
