@@ -5,9 +5,11 @@ body {
   align-items: center;
   background-image: url('./assets/bg-main-desktop.png');
   background-repeat: no-repeat;
-  background-size: 35vw 100%;
+  background-size: 40vw 100%;
   margin: 0px;
-  height: 110vh;
+  height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
 }
 
 .main-content {
@@ -46,6 +48,7 @@ body {
   justify-content: center;
   height: 65%;
   width: 270px;
+  margin-top: 50px;
 }
 
 input {
@@ -119,26 +122,31 @@ h3 {
 }
 
 .confirmed-div {
-  margin: 20%;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
+.completed-logo {
+  width: 60px;
+  height: 60px;
+}
 .confirmed {
-    width: 130%;
+    width: 240px;
     padding: 10px;
     background-color: hsl(278, 68%, 11%);
     color: white;
     border: 2px solid hsl(278, 68%, 11%);
     border-radius: 8px;
-    margin-top: 15px;
-  
+    margin-top: 20px;
 }
+
 h2 {
+  width: 200px;
   margin-top: 10%;
   margin-bottom: 2%;
+  text-align: center;
 }
 p {
   color: grey;
@@ -192,6 +200,13 @@ p {
   .card-cvc {
     margin-top: 18px;
   }
+  .confirmed-div {
+    width: 180px;
+    font-size: 15px;
+  }
+  .confirmed {
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -228,7 +243,7 @@ p {
   .main-content {
     flex-direction: column;
     gap: 0px;
-    margin-top: 70px;
+    margin-top: -50px;
   }
   .card {
     border-radius: 1px;
@@ -255,5 +270,25 @@ p {
   }
   .mm, .yy {
     margin-top: 22px;
+  }
+  .confirmed-div {
+    margin-top: -200px;
+  }
+  .confirmed {
+    width: 300px;
+  }
+  .confirmed-div {
+    width: 300px;
+    font-size: 16px;
+  }
+  .completed-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-height:650px){
+  .main-content {
+    margin-top: 30px;
   }
 }

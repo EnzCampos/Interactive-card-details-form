@@ -1,5 +1,5 @@
 import cardLogo from "./assets/card-logo.svg"
-import { ReactComponent as CompletedLogo } from "./assets/icon-complete.svg"
+import CompletedLogo from "./assets/icon-complete.svg"
 import React from 'react'
 
 //Curent Tasks:
@@ -154,7 +154,7 @@ function App() {
         </form> 
         :
         <div className='confirmed-div'>
-          <CompletedLogo />
+          <img src={CompletedLogo} alt='checkmark' className="completed-logo"/>
           <h2>THANK YOU!</h2>
           <p>We've added your card details</p>
           <button className="confirmed">Continue</button>
